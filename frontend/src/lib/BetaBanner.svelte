@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { Flask, Github } from 'lucide-svelte';
+  import { Beaker, Github } from 'lucide-svelte';
 
   const githubUrl = 'https://github.com/tripzcodes/Teller/issues/new/choose';
 </script>
@@ -7,7 +7,7 @@
 <div class="beta-banner">
   <div class="beta-content">
     <div class="beta-badge">
-      <Flask size={16} />
+      <Beaker size={16} />
       <span>BETA</span>
     </div>
     <p class="beta-text">
