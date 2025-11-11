@@ -127,7 +127,7 @@
 
   .theme-toggle-wrapper {
     position: absolute;
-    top: 2rem;
+    top: 5rem;
     right: 2rem;
     z-index: 10;
   }
