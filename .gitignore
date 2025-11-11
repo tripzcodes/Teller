@@ -1,0 +1,56 @@
+# Dependencies
+node_modules/
+frontend/node_modules/
+backend/node_modules/
+
+# Build outputs
+build/
+dist/
+cpp/build/
+frontend/dist/
+
+# WASM modules (pre-built, but excluded to avoid conflicts)
+# Uncomment if you want to commit WASM modules:
+# frontend/public/wasm/*.js
+# frontend/public/wasm/*.wasm
+
+# Emscripten cache
+.emscripten_cache/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs (development only - never commit)
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Test data (NEVER commit real bank statements!)
+test_data/
+*.pdf
+
+# Temporary files
+*.tmp
+*.temp
+.cache/
+
+# ML models (track separately due to size)
+models/**/*.onnx
+models/**/*.pb
+models/**/*.h5

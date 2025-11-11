@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "@hyzyla/pdfium": "^2.1.9"
+  }
+}
