@@ -1,6 +1,6 @@
 # Teller
 
-![Beta](https://img.shields.io/badge/status-beta-yellow) ![License](https://img.shields.io/badge/license-MIT-blue) ![Privacy](https://img.shields.io/badge/privacy-100%25%20local-green)
+![Beta](https://img.shields.io/badge/status-beta-yellow) ![License](https://img.shields.io/badge/license-Fair%20Source-blue) ![Privacy](https://img.shields.io/badge/privacy-100%25%20local-green)
 
 An open-source, privacy-first bank statement analyzer that runs 100% in your browser using WebAssembly.
 
@@ -353,13 +353,28 @@ We welcome contributions! This project is in active beta and community contribut
 
 ## License
 
-**MIT License**
+**Fair Source License v0.9**
 
-Teller is free and open source software licensed under the MIT License. This means:
+Teller uses a Fair Source license that's free for most users:
 
-- ✅ **Free to use** for personal and commercial purposes
-- ✅ **Open source** - full source code available
-- ✅ **Permissive** - use it however you want, even in proprietary software
-- ✅ **No restrictions** - modify, distribute, sell, or use privately
+### ✅ Free for:
+- 👤 **Individual developers** (personal use)
+- 🏢 **Companies under $1M revenue** (annual gross revenue)
+- 🎓 **Non-profits & educational institutions**
+- 🌐 **Open source projects** (any license)
 
-See [LICENSE](LICENSE) for full terms.
+### 💼 Commercial License Required for:
+- 🏦 **Companies with $1M+ annual revenue**
+
+### Why Fair Source?
+
+Fair Source keeps Teller fully open and developer-friendly while ensuring sustainability:
+
+- ✅ **100% open source code** - no proprietary features
+- ✅ **Free for 99% of users** - individuals, startups, small businesses
+- ✅ **Developer-friendly** - modify, fork, and distribute freely
+- 💰 **Sustainable** - large companies contribute back financially
+
+**Need a commercial license?** Contact [@tripzcodes](https://github.com/tripzcodes) for pricing and support options.
+
+See [LICENSE](LICENSE) for complete terms.
