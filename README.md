@@ -1,6 +1,6 @@
 # Teller
 
-![Beta](https://img.shields.io/badge/status-beta-yellow) ![License](https://img.shields.io/badge/license-MIT-blue) ![Privacy](https://img.shields.io/badge/privacy-100%25%20local-green)
+![Beta](https://img.shields.io/badge/status-beta-yellow) ![License](https://img.shields.io/badge/license-AGPL--3.0-blue) ![Privacy](https://img.shields.io/badge/privacy-100%25%20local-green)
 
 An open-source, privacy-first bank statement analyzer that runs 100% in your browser using WebAssembly.
 
@@ -353,4 +353,18 @@ We welcome contributions! This project is in active beta and community contribut
 
 ## License
 
-MIT License (TBD)
+**GNU Affero General Public License v3.0 (AGPL-3.0)**
+
+Teller is free and open source software licensed under AGPL-3.0. This means:
+
+- ✅ **Free to use** for personal and commercial purposes
+- ✅ **Open source** - full source code available
+- ✅ **Copyleft** - derivative works must also be open source under AGPL-3.0
+- ⚠️ **Network use = distribution** - if you run Teller as a service (SaaS), you must make your source code available
+
+**Why AGPL-3.0?**
+This license ensures Teller remains truly open and privacy-first. If companies integrate Teller into their products, they must contribute back to the community by open-sourcing their modifications.
+
+**Commercial licensing:** If you need to use Teller in a proprietary application without open-sourcing your code, contact [@tripzcodes](https://github.com/tripzcodes) for commercial licensing options.
+
+See [LICENSE](LICENSE) for full terms.
