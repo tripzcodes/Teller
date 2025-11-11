@@ -1,3 +1,6 @@
+# Claude Code settings
+.claude/
+
 # Dependencies
 node_modules/
 frontend/node_modules/
