@@ -551,4 +551,87 @@
     align-items: center;
     gap: 0.25rem;
   }
+
+  /* Mobile responsive styles */
+  @media (max-width: 640px) {
+    .summary-cards {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .summary-card {
+      padding: 1.25rem;
+    }
+
+    .summary-card h3 {
+      font-size: 0.8125rem;
+    }
+
+    .summary-value {
+      font-size: 1.75rem;
+    }
+
+    .charts-grid {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .chart-section {
+      padding: 1.25rem;
+    }
+
+    .chart-section h3 {
+      font-size: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .legend {
+      margin-top: 1rem;
+      gap: 0.5rem;
+    }
+
+    .legend-item {
+      font-size: 0.8125rem;
+    }
+
+    .monthly-section {
+      padding: 1.25rem;
+    }
+
+    .monthly-section h3 {
+      font-size: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .monthly-grid {
+      grid-template-columns: 1fr;
+      gap: 0.75rem;
+    }
+
+    .month-card {
+      padding: 0.875rem;
+    }
+
+    .month-expenses {
+      font-size: 1.125rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .charts-grid {
+      grid-template-columns: 1fr;
+      gap: 1.75rem;
+    }
+
+    .summary-cards {
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .monthly-grid {
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    }
+  }
 </style>

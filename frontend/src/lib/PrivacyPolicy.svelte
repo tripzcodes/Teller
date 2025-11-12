@@ -228,4 +228,65 @@
   .footer-nav button:hover {
     background: #5568d3;
   }
+
+  /* Mobile responsive styles */
+  @media (max-width: 640px) {
+    .privacy-container {
+      padding: 1.5rem 1rem;
+    }
+
+    .privacy-container h1 {
+      font-size: 1.75rem;
+      margin-bottom: 1rem;
+    }
+
+    .last-updated {
+      font-size: 0.875rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .privacy-container h2 {
+      font-size: 1.25rem;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .privacy-container h3 {
+      font-size: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .privacy-container p,
+    .privacy-container li {
+      font-size: 0.9375rem;
+      line-height: 1.7;
+    }
+
+    .footer-nav {
+      margin-top: 2rem;
+      padding-top: 1.5rem;
+    }
+
+    .footer-nav button {
+      padding: 0.75rem 1.5rem;
+      font-size: 0.9375rem;
+      width: 100%;
+      max-width: 250px;
+      min-height: 44px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .privacy-container {
+      padding: 2rem 1.5rem;
+    }
+
+    .privacy-container h1 {
+      font-size: 2rem;
+    }
+
+    .privacy-container h2 {
+      font-size: 1.375rem;
+    }
+  }
 </style>

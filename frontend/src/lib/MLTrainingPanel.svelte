@@ -471,4 +471,93 @@
     color: #fde68a;
     border-color: #92400e;
   }
+
+  /* Mobile responsive styles */
+  @media (max-width: 640px) {
+    .panel {
+      padding: 1.25rem;
+    }
+
+    .panel h2 {
+      font-size: 1.125rem;
+      margin-bottom: 1rem;
+    }
+
+    .panel p {
+      font-size: 0.875rem;
+    }
+
+    .info-section {
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .info-grid {
+      grid-template-columns: 1fr;
+      gap: 0.75rem;
+    }
+
+    .info-item {
+      padding: 0.875rem;
+    }
+
+    .info-label {
+      font-size: 0.75rem;
+    }
+
+    .info-value {
+      font-size: 1.25rem;
+    }
+
+    .actions {
+      gap: 0.625rem;
+    }
+
+    .btn, .btn-danger {
+      padding: 0.75rem 1rem;
+      font-size: 0.875rem;
+      width: 100%;
+      min-height: 44px;
+    }
+
+    .training-form {
+      gap: 1rem;
+      padding: 1rem;
+    }
+
+    .form-group label {
+      font-size: 0.875rem;
+    }
+
+    .form-group input,
+    .form-group select {
+      padding: 0.75rem;
+      font-size: 0.9375rem;
+      min-height: 44px;
+    }
+
+    .warning {
+      padding: 0.625rem 0.875rem;
+      font-size: 0.8125rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .panel {
+      padding: 1.5rem;
+    }
+
+    .info-grid {
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    }
+
+    .actions {
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    .btn, .btn-danger {
+      width: 100%;
+    }
+  }
 </style>

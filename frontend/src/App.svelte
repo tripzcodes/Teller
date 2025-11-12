@@ -170,6 +170,51 @@
     gap: 0.75rem;
   }
 
+  /* Mobile header adjustments */
+  @media (max-width: 640px) {
+    main {
+      padding: 1rem;
+    }
+
+    header {
+      margin-bottom: 1.5rem;
+      padding-bottom: 1rem;
+    }
+
+    .header-content {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+
+    .header-text {
+      width: 100%;
+    }
+
+    .subtitle {
+      display: none;
+    }
+
+    .header-actions {
+      width: 100%;
+      justify-content: flex-end;
+    }
+
+    h1 {
+      font-size: 1.5rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    main {
+      padding: 1.5rem;
+    }
+
+    .container {
+      padding: 1.5rem;
+    }
+  }
+
   .home-link {
     background: none;
     border: none;

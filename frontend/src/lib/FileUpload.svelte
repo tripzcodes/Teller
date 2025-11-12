@@ -259,4 +259,40 @@
     background: #e5e7eb;
   }
 
+  /* Mobile responsive styles */
+  @media (max-width: 640px) {
+    .dropzone {
+      padding: 2rem 1.5rem;
+      min-height: 200px;
+    }
+
+    .upload-icon {
+      margin-bottom: 1rem;
+    }
+
+    .upload-text {
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .sub-text {
+      font-size: 0.8125rem;
+    }
+
+    .browse-button {
+      padding: 0.75rem 1.5rem;
+      font-size: 0.875rem;
+      min-height: 44px;
+      width: 100%;
+      max-width: 250px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .dropzone {
+      padding: 2.5rem 2rem;
+      min-height: 220px;
+    }
+  }
+
 </style>

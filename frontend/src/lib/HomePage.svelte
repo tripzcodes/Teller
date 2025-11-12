@@ -193,6 +193,7 @@
     border-radius: 6px;
     cursor: pointer;
     transition: background 0.2s;
+    min-height: 44px;
   }
 
   .cta-button:hover {
@@ -439,5 +440,119 @@
   :global(.dark) .footer-links button:hover,
   :global(.dark) .footer-links a:hover {
     color: #f9fafb;
+  }
+
+  /* Mobile responsive styles */
+  @media (max-width: 640px) {
+    .theme-toggle-wrapper {
+      top: 1rem;
+      right: 1rem;
+    }
+
+    .hero {
+      padding: 3rem 1.5rem;
+      margin-bottom: 3rem;
+    }
+
+    .hero h1 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      letter-spacing: -0.015em;
+    }
+
+    .tagline {
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .subtitle {
+      font-size: 0.875rem;
+      margin-bottom: 2rem;
+    }
+
+    .cta-button {
+      padding: 0.75rem 1.75rem;
+      font-size: 0.9375rem;
+      width: 100%;
+      max-width: 300px;
+    }
+
+    .features, .how-it-works, .tech {
+      padding: 0 1rem;
+    }
+
+    .features h2, .how-it-works h2, .tech h2 {
+      font-size: 1.75rem;
+      margin-bottom: 2rem;
+    }
+
+    .feature-grid {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+      margin-bottom: 3rem;
+    }
+
+    .feature {
+      padding: 1.5rem 1.25rem;
+    }
+
+    .steps {
+      gap: 2.5rem;
+      margin-bottom: 3rem;
+    }
+
+    .step {
+      max-width: 100%;
+    }
+
+    .tech {
+      padding: 2.5rem 1.5rem;
+      margin-bottom: 3rem;
+    }
+
+    .footer {
+      padding: 2rem 1.5rem;
+    }
+
+    .footer-links {
+      gap: 1.25rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .hero {
+      padding: 4rem 2rem;
+      margin-bottom: 4rem;
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+    }
+
+    .tagline {
+      font-size: 1.125rem;
+    }
+
+    .feature-grid {
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.25rem;
+      margin-bottom: 4rem;
+    }
+
+    .steps {
+      gap: 3rem;
+      margin-bottom: 4rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .hero h1 {
+      font-size: 1.75rem;
+    }
+
+    .cta-button {
+      width: 100%;
+      max-width: none;
+    }
   }
 </style>

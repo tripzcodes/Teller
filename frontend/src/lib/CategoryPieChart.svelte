@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { onMount, afterUpdate } from 'svelte';
+  import { onMount, afterUpdate, onDestroy } from 'svelte';
   import * as d3 from 'd3';
   import type { CategoryTotal } from '../utils/analytics';
   import { getCategoryColor } from '../utils/categorizer';
@@ -8,11 +8,24 @@
   export let width: number = 400;
   export let height: number = 400;
 
+  let containerElement: HTMLDivElement;
   let svgElement: SVGSVGElement;
   let tooltipVisible = false;
   let tooltipContent = '';
   let tooltipX = 0;
   let tooltipY = 0;
+  let containerWidth = width;
+  let resizeObserver: ResizeObserver;
+
+  function updateDimensions() {
+    if (containerElement) {
+      containerWidth = containerElement.clientWidth;
+      const size = Math.min(containerWidth, 400);
+      width = size;
+      height = size;
+      renderChart();
+    }
+  }
 
   function renderChart() {
     if (!svgElement || data.length === 0) return;
@@ -49,7 +62,7 @@
       .append('g')
       .attr('class', 'arc');
 
-    // Add paths
+    // Add paths with both mouse and touch support
     arcs.append('path')
       .attr('d', arc)
       .attr('fill', d => getCategoryColor(d.data.category))
@@ -76,6 +89,31 @@
           .attr('d', arc);
 
         tooltipVisible = false;
+      })
+      .on('touchstart', function(event, d) {
+        event.preventDefault();
+        d3.select(this)
+          .transition()
+          .duration(200)
+          .attr('d', hoverArc);
+
+        const touch = event.touches[0];
+        const total = d.data.total;
+        const percentage = d.data.percentage;
+        tooltipContent = `${d.data.category}\n$${total.toFixed(2)} (${percentage.toFixed(1)}%)`;
+        tooltipX = touch.pageX;
+        tooltipY = touch.pageY;
+        tooltipVisible = true;
+      })
+      .on('touchend', function() {
+        d3.select(this)
+          .transition()
+          .duration(200)
+          .attr('d', arc);
+
+        setTimeout(() => {
+          tooltipVisible = false;
+        }, 2000);
       });
 
     // Add center text
@@ -100,15 +138,30 @@
   }
 
   onMount(() => {
-    renderChart();
+    updateDimensions();
+
+    // Set up ResizeObserver for responsive sizing
+    resizeObserver = new ResizeObserver(() => {
+      updateDimensions();
+    });
+
+    if (containerElement) {
+      resizeObserver.observe(containerElement);
+    }
   });
 
   afterUpdate(() => {
     renderChart();
   });
+
+  onDestroy(() => {
+    if (resizeObserver) {
+      resizeObserver.disconnect();
+    }
+  });
 </script>
 
-<div class="chart-container">
+<div class="chart-container" bind:this={containerElement}>
   <svg bind:this={svgElement}></svg>
 
   {#if tooltipVisible}
@@ -127,6 +180,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100%;
+    min-height: 300px;
   }
 
   svg {

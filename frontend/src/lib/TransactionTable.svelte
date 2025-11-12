@@ -418,4 +418,105 @@
   :global(.dark) .amount.debit {
     color: #f87171;
   }
+
+  /* Mobile responsive styles */
+  @media (max-width: 640px) {
+    .controls {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 1rem;
+    }
+
+    .search-box {
+      width: 100%;
+    }
+
+    .search-box input {
+      font-size: 0.9375rem;
+    }
+
+    .filters {
+      width: 100%;
+      justify-content: flex-start;
+      gap: 0.5rem;
+    }
+
+    .filter-btn {
+      padding: 0.625rem 1rem;
+      font-size: 0.8125rem;
+      min-height: 44px;
+    }
+
+    .stats {
+      font-size: 0.8125rem;
+      text-align: center;
+      margin-top: 1rem;
+    }
+
+    .table-wrapper {
+      /* Improve touch scrolling on mobile */
+      -webkit-overflow-scrolling: touch;
+      border-radius: 6px;
+    }
+
+    /* Make first column (date) sticky on mobile */
+    th:first-child,
+    td:first-child {
+      position: sticky;
+      left: 0;
+      z-index: 2;
+      background: inherit;
+    }
+
+    th:first-child {
+      z-index: 3;
+    }
+
+    th {
+      padding: 0.75rem 0.5rem;
+      font-size: 0.8125rem;
+      white-space: nowrap;
+    }
+
+    td {
+      padding: 0.875rem 0.5rem;
+      font-size: 0.875rem;
+    }
+
+    .date {
+      font-size: 0.8125rem;
+    }
+
+    .description {
+      font-size: 0.875rem;
+    }
+
+    .category-tag {
+      font-size: 0.6875rem;
+      padding: 0.25rem 0.5rem;
+    }
+
+    .merchant {
+      font-size: 0.75rem;
+    }
+
+    .amount {
+      font-size: 0.9375rem;
+    }
+
+    .balance {
+      font-size: 0.8125rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    th {
+      padding: 0.875rem 0.75rem;
+      font-size: 0.875rem;
+    }
+
+    td {
+      padding: 1rem 0.75rem;
+    }
+  }
 </style>

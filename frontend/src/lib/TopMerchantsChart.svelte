@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { onMount, afterUpdate } from 'svelte';
+  import { onMount, afterUpdate, onDestroy } from 'svelte';
   import * as d3 from 'd3';
   import type { MerchantTotal } from '../utils/analytics';
   import { getCategoryColor } from '../utils/categorizer';
@@ -8,7 +8,25 @@
   export let width: number = 800;
   export let height: number = 400;
 
+  let containerElement: HTMLDivElement;
   let svgElement: SVGSVGElement;
+  let resizeObserver: ResizeObserver;
+
+  function updateDimensions() {
+    if (containerElement) {
+      const containerWidth = containerElement.clientWidth;
+      width = containerWidth;
+      // Adjust height for mobile
+      if (containerWidth < 640) {
+        height = 350;
+      } else if (containerWidth < 768) {
+        height = 380;
+      } else {
+        height = 400;
+      }
+      renderChart();
+    }
+  }
 
   function renderChart() {
     if (!svgElement || data.length === 0) return;
@@ -16,7 +34,11 @@
     // Clear previous chart
     d3.select(svgElement).selectAll('*').remove();
 
-    const margin = { top: 20, right: 30, bottom: 100, left: 60 };
+    // Responsive margins
+    const isMobile = width < 640;
+    const margin = isMobile
+      ? { top: 20, right: 10, bottom: 120, left: 50 }
+      : { top: 20, right: 30, bottom: 100, left: 60 };
     const chartWidth = width - margin.left - margin.right;
     const chartHeight = height - margin.top - margin.bottom;
 
@@ -47,6 +69,7 @@
     xAxis.selectAll('text')
       .style('fill', 'currentColor')
       .style('text-anchor', 'end')
+      .style('font-size', isMobile ? '0.7rem' : '0.875rem')
       .attr('dx', '-.8em')
       .attr('dy', '.15em')
       .attr('transform', 'rotate(-45)');
@@ -55,11 +78,13 @@
       .style('stroke', 'currentColor')
       .style('opacity', '0.3');
 
+    const yTicks = isMobile ? 4 : 5;
     const yAxis = g.append('g')
-      .call(d3.axisLeft(y).ticks(5).tickFormat(d => `$${d}`));
+      .call(d3.axisLeft(y).ticks(yTicks).tickFormat(d => `$${d}`));
 
     yAxis.selectAll('text')
-      .style('fill', 'currentColor');
+      .style('fill', 'currentColor')
+      .style('font-size', isMobile ? '0.75rem' : '0.875rem');
 
     yAxis.selectAll('line, path')
       .style('stroke', 'currentColor')
@@ -68,13 +93,13 @@
     // Add grid lines
     g.append('g')
       .attr('class', 'grid')
-      .call(d3.axisLeft(y).ticks(5).tickSize(-chartWidth).tickFormat(() => ''))
+      .call(d3.axisLeft(y).ticks(yTicks).tickSize(-chartWidth).tickFormat(() => ''))
       .style('stroke', 'currentColor')
       .style('stroke-opacity', '0.1')
       .select('.domain')
       .remove();
 
-    // Add bars
+    // Add bars with touch support
     g.selectAll('.bar')
       .data(data)
       .enter()
@@ -92,9 +117,17 @@
       })
       .on('mouseout', function() {
         d3.select(this).attr('opacity', 0.8);
+      })
+      .on('touchstart', function(event) {
+        event.preventDefault();
+        d3.select(this).attr('opacity', 1);
+      })
+      .on('touchend', function() {
+        d3.select(this).attr('opacity', 0.8);
       });
 
     // Add value labels on bars
+    const labelFontSize = isMobile ? '0.7rem' : '0.75rem';
     g.selectAll('.label')
       .data(data)
       .enter()
@@ -104,21 +137,36 @@
       .attr('y', d => y(d.total) - 5)
       .attr('text-anchor', 'middle')
       .style('fill', 'currentColor')
-      .style('font-size', '0.75rem')
+      .style('font-size', labelFontSize)
       .style('font-weight', '600')
       .text(d => `$${d.total.toFixed(0)}`);
   }
 
   onMount(() => {
-    renderChart();
+    updateDimensions();
+
+    // Set up ResizeObserver for responsive sizing
+    resizeObserver = new ResizeObserver(() => {
+      updateDimensions();
+    });
+
+    if (containerElement) {
+      resizeObserver.observe(containerElement);
+    }
   });
 
   afterUpdate(() => {
     renderChart();
   });
+
+  onDestroy(() => {
+    if (resizeObserver) {
+      resizeObserver.disconnect();
+    }
+  });
 </script>
 
-<div class="chart-container">
+<div class="chart-container" bind:this={containerElement}>
   <svg bind:this={svgElement}></svg>
 </div>
 

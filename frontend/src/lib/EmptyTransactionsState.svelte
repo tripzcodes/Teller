@@ -163,4 +163,75 @@
   :global(.dark) .privacy-note {
     color: #6b7280;
   }
+
+  /* Mobile responsive styles */
+  @media (max-width: 640px) {
+    .empty-state {
+      padding: 2rem 1.5rem;
+    }
+
+    .icon-container {
+      width: 80px;
+      height: 80px;
+      margin-bottom: 1.25rem;
+    }
+
+    .title {
+      font-size: 1.25rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .description {
+      font-size: 0.9375rem;
+      margin-bottom: 2rem;
+    }
+
+    .feedback-form {
+      padding: 1.25rem;
+      gap: 1rem;
+    }
+
+    .feedback-form h3 {
+      font-size: 1rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .form-label {
+      font-size: 0.875rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .form-textarea {
+      padding: 0.75rem;
+      font-size: 0.9375rem;
+      min-height: 100px;
+    }
+
+    .submit-btn {
+      padding: 0.75rem 1.25rem;
+      font-size: 0.875rem;
+      min-height: 44px;
+      width: 100%;
+    }
+
+    .privacy-note {
+      font-size: 0.8125rem;
+      margin-top: 1rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .empty-state {
+      padding: 2.5rem 2rem;
+    }
+
+    .icon-container {
+      width: 90px;
+      height: 90px;
+    }
+
+    .title {
+      font-size: 1.375rem;
+    }
+  }
 </style>

@@ -11,6 +11,12 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  /* Mobile breakpoints */
+  --mobile-small: 480px;
+  --mobile: 640px;
+  --tablet: 768px;
+  --desktop-small: 1024px;
 }
 
 a {
@@ -44,6 +50,30 @@ h1 {
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 640px) {
+  #app {
+    padding: 1rem;
+  }
+
+  h1 {
+    font-size: 2em;
+    line-height: 1.2;
+  }
+
+  button {
+    /* Ensure minimum touch target size */
+    min-height: 44px;
+    padding: 0.75em 1em;
+  }
+}
+
+@media (max-width: 768px) {
+  .card {
+    padding: 1.5em;
+  }
 }
 
 button {
