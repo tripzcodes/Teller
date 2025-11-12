@@ -34,7 +34,7 @@
       Teller uses WebAssembly (WASM) technology to run C++ code directly in your browser. This means:
     </p>
     <ul>
-      <li>PDF parsing happens on your device using PDFium (Chrome's PDF library)</li>
+      <li>PDF parsing happens on your device using PDF.js (Mozilla's JavaScript PDF library)</li>
       <li>Transaction extraction and analysis run locally using our C++ engine</li>
       <li>All data remains in your browser's memory and is cleared when you close the tab</li>
     </ul>
@@ -94,7 +94,7 @@
     </p>
     <ul>
       <li>The Teller web application files (HTML, CSS, JavaScript)</li>
-      <li>WebAssembly modules (PDFium and our C++ analyzer)</li>
+      <li>WebAssembly modules (PDF.js and our C++ analyzer)</li>
     </ul>
     <p>
       These are served once when you load the page and cached by your browser. No subsequent

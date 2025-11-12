@@ -101,7 +101,7 @@
     <h2>Built with Modern Technology</h2>
     <div class="tech-details">
       <p><strong>C++ & WebAssembly</strong> - High-performance PDF parsing and analysis</p>
-      <p><strong>PDFium</strong> - Chrome's production-grade PDF library</p>
+      <p><strong>PDF.js</strong> - Mozilla's JavaScript PDF library</p>
       <p><strong>Svelte</strong> - Modern, reactive UI framework</p>
       <p><strong>TypeScript</strong> - Type-safe frontend code</p>
     </div>
